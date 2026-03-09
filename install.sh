@@ -54,10 +54,8 @@ DB_PASS=${DB_PASS:-postgres}
 DB_HOST=${DB_HOST:-localhost}
 
 # Создаем пользователя и базу данных
-su - postgres -c "psql -c \"SELECT 1 FROM pg_database WHERE datname = '$DB_NAME';\"" | grep -q 1 || \
-    su - postgres -c "psql -c \"CREATE USER $DB_USER WITH PASSWORD '$DB_PASS' SUPERUSER;\""
-su - postgres -c "psql -c \"SELECT 1 FROM pg_database WHERE datname = '$DB_NAME';\"" | grep -q 1 || \
-    su - postgres -c "psql -c \"CREATE DATABASE $DB_NAME OWNER $DB_USER;\""
+su - postgres -c "psql -c \"CREATE USER $DB_USER WITH PASSWORD '$DB_PASS' SUPERUSER;\"" 2>/dev/null || true
+su - postgres -c "psql -c \"CREATE DATABASE $DB_NAME OWNER $DB_USER;\"" 2>/dev/null || true
 
 echo -e "${GREEN}База данных $DB_NAME готова${NC}"
 
