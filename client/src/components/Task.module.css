@@ -1,0 +1,46 @@
+.task {
+  background: white;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  cursor: grab;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  position: relative;
+  user-select: none;
+}
+
+.task:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: #667eea;
+}
+
+.task:active {
+  cursor: grabbing;
+}
+
+.task.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.content {
+  font-size: 0.9rem;
+  color: #172b4d;
+  word-wrap: break-word;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7rem;
+}
+
+.id {
+  color: #7a869a;
+  font-weight: 500;
+}
